@@ -4,6 +4,7 @@ const path = require('path');
 const options = {
     extensions: ['ts', 'js'],
     exclude: 'node_modules',
+    emitWarning: false
 }
 
 module.exports = {
@@ -17,14 +18,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: "/\.js?$/",
-                exclude: "/node_modules/",
-                use: ["babel-loader"]
+                test: /\.js?$/,
+                exclude: [/node_modules/],
+                use: "babel-loader"
             },
             {
-                test: '/\.tsx?$/',
-                use: 'ts-loader',
-                exclude: '/node_modules/',
+                test: /\.ts$/,
+                exclude: [/node_modules/],
+                loader: 'ts-loader'
             },
         ],
     },
