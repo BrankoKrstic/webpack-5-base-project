@@ -6,8 +6,6 @@ const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 const options = {
     extensions: ['js'],
     exclude: 'node_modules',
-    emitError: true,
-    failOnError: true
 }
 
 module.exports = {
@@ -20,14 +18,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: "/\.js?$/",
-                exclude: "/node_modules/",
-                use: ["babel-loader", "eslint-loader"]
+                test: /\.js?$/,
+                exclude: [/node_modules/],
+                use: "babel-loader"
             },
             {
-                test: '/\.tsx?$/',
-                use: 'ts-loader',
-                exclude: '/node_modules/',
+                test: /\.ts$/,
+                exclude: [/node_modules/],
+                loader: 'ts-loader'
             },
         ],
     },
