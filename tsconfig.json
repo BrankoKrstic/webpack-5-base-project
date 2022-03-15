@@ -95,6 +95,6 @@
         "**/*.ts"
     ],
     "exclude": [
-        "node_modukes"
+        "node_modules"
     ]
 }
